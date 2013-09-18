@@ -87,11 +87,29 @@
                     <img src="assets/images/decentralized.jpg"/>
                     </section>
                     <section>
-                    <h1>A distributed<br/>hash table is a peer-to-peer<br/>key / value data store</h1>
+                    <h1>A distributed<br/>hash table (DHT) is a peer-to-peer<br/>key / value data store</h1>
                     </section>
                 </section>
                 <section>
+                <h1>Why?</h1>
+                <ul>
+                    <li class="fragment">No single point of failure or
+                    inadvertent point of control (e.g. DNS-be-gone).</li>
+                    <li class="fragment">Scale to huge number of nodes
+                    (redundancy++).</li>
+                    <li class="fragment">Relatively efficient.</li>
+                    <li class="fragment">Good handling of fluid network
+                    membership.</li>
+                    <li class="fragment">Solid foundational infrastructure for
+                    more complex services (e.g. the drogulus, distributed file
+                    systems, CDNs, p2p file sharing).</li>
+                    <li class="fragment">Tested in the real world (Bittorrent,
+                    Freenet and others).</li>
+                </ul>
+                </section>
+                <section>
                     <h1>How..?</h1>
+                    <p>A summary of the rest of the talk:</p>
                     <ul>
                         <li class="fragment">The DHT has a
                         <strong><u>key</u></strong>
@@ -121,19 +139,23 @@
   'http://www.gutenberg.org/ebooks/2600.txt.utf-8')
 &gt;&gt;&gt; war_and_peace = response.content
 &gt;&gt;&gt; len(war_and_peace)
-3226646
+3291641
 &gt;&gt;&gt; from hashlib import sha1
 &gt;&gt;&gt; hash = sha1(war_and_peace)
 &gt;&gt;&gt; hash.hexdigest()
-'f8e35272cbed8a26402712df06cf999b3b19ba7b'
+'ee9fe1af40a27e58ca32dce32c891dce2885bbcb'
+&gt;&gt;&gt; int(hash.hexdigest().encode('hex'), 16)
+8460127932676481751312505548999589516107164899634142
+19229096415778905956014446754451978211976034L
                         </code></pre>
+                        <p>A hash is <em><u>just a number</u></em>.</p>
                     </section>
                     <section>
-                    <h3>f8e35272cbed8a26402712df06cf999b3b19ba7b</h3>
+                    <h3>ee9fe1af40a27e58ca32dce32c891dce2885bbcb</h3>
                     <img src="assets/images/war_and_peace.jpg"/>
                     </section>
                     <section>
-                        <h2>Hash functions...</h2>
+                        <h2>Good Hash functions...</h2>
                         <ul>
                         <li class="fragment">Deterministically generate small
                         fixed-length values from seed data.</li>
@@ -149,7 +171,7 @@
                 </section>
                 <section>
                     <section>
-                        <h2>Nodes</h2>
+                        <h2>A clock face of nodes</h2>
                         <img src="assets/images/nodes.png"/>
                     </section>
                     <section>
@@ -200,12 +222,15 @@
                         <p>(ID, IP address and port etc...)</p>
                     </section>
                     <section>
-                        <h2>Recursively split into buckets</h2>
+                        <h2><span style="color: blue">Peers</span> stored in
+                        fixed size
+                        <span style="border: 1px #737373 solid; padding-left:8px; padding-right: 8px;">buckets</span></h2>
                         <img src="assets/images/peers-rt.png"/>
                     </section>
                     <section>
-                        <h1>Unresponsive peers are ignored -</h1>
-                        <h1>Routing Table is kept fresh</h1>
+                        <h1>Ignore unresponsive peers</h1>
+                        <h1>Refresh the Routing Table</h1>
+                        <h1>Re-publish items</h1>
                     </section>
                 </section>
                 <section>
@@ -218,15 +243,20 @@
                         <img src="assets/images/lookup1.png"/>
                     </section>
                     <section>
-                        <h2>Six degrees of separation</h2>
+                        <h2>Ask <span style="color: #008400">closest known
+                        peers</span></h2>
                         <img src="assets/images/lookup2.png"/>
                     </section>
                     <section>
-                        <h2>Six degrees of separation</h2>
+                        <h2><span style="color: #008400">They</span> reply
+                        with <span style="color: #d73f87">closer
+                        peers</span></h2>
                         <img src="assets/images/lookup3.png"/>
                     </section>
                     <section>
-                        <h2>Six degrees of separation</h2>
+                        <h2><span style="color: #d73f87">They</span> reply
+                        with the
+                        <span style="color: #ff4b00">target</span></h2>
                         <img src="assets/images/lookup4.png"/>
                     </section>
                 </section>
@@ -246,12 +276,6 @@
                     </ul>
                 </section>
                 <section>
-                    <h1>Questions..?</h1>
-                    <p>The source for this presentation can be found online
-                    here:</p>
-                    <p><a href="https://github.com/ntoll/presentations/tree/master/dhtcs">https://github.com/ntoll/presentations/tree/master/dhtcs</a></p>
-                </section>
-                <section>
                     <h1>Image Credits</h1>
                     <p>Licensed under <a href="http://creativecommons.org/licenses/by/2.0/deed.en_GB">CC BY 2.0</a></p>
                     <ul>
@@ -263,6 +287,12 @@
                         <li><a href="http://www.flickr.com/photos/caseorganic/4536319810/">Business card</a></li>
                         <li><a href="http://www.flickr.com/photos/dwnews/8363649686/">Kevin Bacon</a></li>
                     </ul>
+                </section>
+                <section>
+                    <h1>Questions..?</h1>
+                    <p>The source for this presentation can be found online
+                    here:</p>
+                    <p><a href="https://github.com/ntoll/presentations/tree/master/dhtcs">https://github.com/ntoll/presentations/tree/master/dhtcs</a></p>
                 </section>
             </div>
             <aside class="controls" style="display: block;">
