@@ -192,9 +192,9 @@
 &gt;&gt;&gt; sha1('my_key').hexdigest()
 '0f7da3f82f86e5ea63d3ac270f091af4bcfa819a'
                         </code></pre>
-                        <p>The key is turned into a hash. The value is stored
-                        at nodes whose IDs are <strong><u>close</u></strong>
-                        to the hash of the key.</p>
+                        <h2>The key is turned into a hash. The value is stored
+                        at nodes whose IDs are <em><u>close</u></em>
+                        to the location of the hash of the key.</h2>
                     </section>
                     <section>
                         <h2>Aardvark belongs...</h2>
@@ -222,6 +222,18 @@
                         <h2>Interactions give tracking data</h2>
                         <img src="assets/images/contact.jpg"/>
                         <p>(ID, IP address and port etc...)</p>
+                    </section>
+                    <section>
+                        <h2><span style="color: blue">Peers</span> stored in
+                        fixed size
+                        <span style="border: 1px #737373 solid; padding-left:8px; padding-right: 8px;">buckets</span></h2>
+                        <img src="assets/images/peers-rt.png"/>
+                    </section>
+                    <section>
+                        <h2>Buckets contain the same number of peers</h2>
+                        <h2>Buckets cover a smaller range the closer to the
+                        local node thay are</h2>
+                        <h2>Ergo, the local node knows more closer nodes</h2>
                     </section>
                     <section>
                         <h2><span style="color: blue">Peers</span> stored in
