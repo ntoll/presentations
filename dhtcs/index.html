@@ -94,7 +94,7 @@
                 <h1>Why?</h1>
                 <ul>
                     <li class="fragment">No single point of failure or
-                    inadvertent point of control (e.g. DNS-be-gone).</li>
+                    inadvertent point of control (e.g. no need for DNS).</li>
                     <li class="fragment">Scale to huge number of nodes
                     (redundancy++).</li>
                     <li class="fragment">Relatively efficient.</li>
@@ -109,12 +109,12 @@
                 </section>
                 <section>
                     <h1>How..?</h1>
-                    <p>A summary of the rest of the talk:</p>
+                    <p>What the rest of the talk is about:</p>
                     <ul>
                         <li class="fragment">The DHT has a
                         <strong><u>key</u></strong>
-                        space the size of the number of values potentially
-                        created by a hashing function (e.g. SHA512).</li>
+                        space the size of the output range of its hashing
+                        function (e.g. SHA512).</li>
                         <li class="fragment">Each <strong><u>node</u></strong>
                         has a unique <strong><u>ID</u></strong> (a hash).</li>
                         <li class="fragment">Each <strong><u>key</u></strong>
@@ -157,8 +157,8 @@
                     <section>
                         <h2>Good Hash functions...</h2>
                         <ul>
-                        <li class="fragment">Deterministically generate small
-                        fixed-length values from seed data.</li>
+                        <li class="fragment">Deterministically generate
+                        small-ish values from seed data.</li>
                         <li class="fragment">Cannot be reversed.</li>
                         <li class="fragment">Generate different values from
                         different seed data.</li>
@@ -171,15 +171,17 @@
                 </section>
                 <section>
                     <section>
+                        <h1>Hashing for Nodes and Keys</h1>
+                        <h2>(Location, Location, Location)</h2>
+                    </section>
+                    <section>
                         <h2>A clock face of nodes</h2>
                         <img src="assets/images/nodes.png"/>
                     </section>
                     <section>
-                        <h2>Node's ID Number derived from Hash</h2>
+                        <h3>Node's ID (location) is derived from Hash</h3>
                         <img src="assets/images/numbered_nodes.png"/>
                     </section>
-                </section>
-                <section>
                     <section>
                         <h2>Items are a Key / Value Pair</h2>
                         <pre><code contenteditable class="python">
@@ -263,6 +265,10 @@
                 <section>
                     <h1>GET() &amp; SET() require a lookup.</h1>
                     <h1>All interactions are asynchronous.</h1>
+                </section>
+                <section>
+                    <h1>That's it!</h1>
+                    <h2>(But I'm only scratching the surface)</h2>
                 </section>
                 <section>
                     <h1>Find Out More</h1>
