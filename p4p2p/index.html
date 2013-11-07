@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>P2P Platform Brainstorm</title>
+        <meta name="description" content=""/>
+        <meta name="author" content="Nicholas H.Tollervey"/>
+        <meta name="author" content="Holger Krekel"/>
+        <meta name="author" content="Fabian Neumann"/>
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <link href='assets/fonts/Lato' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/print.css" type="text/css" media="print">
+        <link rel="stylesheet" href="lib/github.css">
+        <link rel="stylesheet" href="css/presentation.css">
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="state-background"></div>
+            <div class="slides">
+                <section>
+                    <h1>P4P2P</h1>
+                    <h2>A Platform for Peer to Peer</h2>
+                    <br/>
+                    <p>
+                        <i>
+                            <small>Nicholas H.Tollervey, Holger Krekel
+                            &amp; Fabian Neumann</small>
+                            <br/>
+                            <a href="http://ntoll.org">
+                            <small>
+                                <img src="assets/images/home.png" class="icon"/>
+                                ntoll.org
+                            </small></a>
+                            <small>/</small>
+                            <a href="mailto:ntoll@ntoll.org?subject=Hi%20there!&body=Hey%20Nicholas,">
+                            <small>
+                                <img src="assets/images/email.png" class="icon"/>
+                                ntoll@ntoll.org
+                            </small>
+                            </a>
+                            <small>/</small>
+                            <a href="http://twitter.com/ntoll">
+                            <small>
+                                <img src="assets/images/twitter.png" class="icon"/>
+                                @ntoll
+                            </small>
+                            </a>
+                            <br/>
+                            <a href="http://merlinux.eu">
+                            <small>
+                                <img src="assets/images/home.png" class="icon"/>
+                                merlinux.eu
+                            </small></a>
+                            <small>/</small>
+                            <a href="mailto:holger@merlinux.eu?subject=Hi%20there!&body=Hey%20Holger,">
+                            <small>
+                                <img src="assets/images/email.png" class="icon"/>
+                                holger@merlinux.eu
+                            </small>
+                            </a>
+                            <small>/</small>
+                            <a href="http://twitter.com/hpk42">
+                            <small>
+                                <img src="assets/images/twitter.png" class="icon"/>
+                                @hpk42
+                            </small>
+                            </a>
+                            <br/>
+                            <a href="http://www.fabianneumann.de/">
+                            <small>
+                                <img src="assets/images/home.png" class="icon"/>
+                                fabianneumann.de
+                            </small></a>
+                            <small>/</small>
+                            <a href="mailto:mail@fabianneumann.de?subject=Hi%20there!&body=Hey%20Fabian,">
+                            <small>
+                                <img src="assets/images/email.png" class="icon"/>
+                                mail@fabianneumann.de
+                            </small>
+                            </a>
+                            <small>/</small>
+                            <a href="http://twitter.com/hellp">
+                            <small>
+                                <img src="assets/images/twitter.png" class="icon"/>
+                                @hellp
+                            </small>
+                            </a>
+                        </i>
+                    </p>
+                    <script>
+                        if( navigator.userAgent.match( /(iPhone|iPad|iPod|Android)/i ) ) document.write( '<p style="color: rgba(0,0,0,0.3); text-shadow: none;">('+'Tap to navigate'+')</p>' );
+                    </script>
+                </section>
+                <section>
+                    <img src="assets/images/bluesky.jpg"/>
+                </section>
+                <section>
+                    <h2>Can we make a small &amp; simple framework for
+                    P2P applications?</h2>
+                    <p>There are two broad aspects to consider:</p>
+                    <br/>
+                    <ol>
+                        <li class="fragment">Peer discovery and communication</li>
+                        <br/>
+                        <li class="fragment">Application deployment and execution</li>
+                    </ol>
+                </section>
+                <section>
+                    <h2>Example Applications:</h2>
+                    <ul>
+                        <li>Chat room (message passing)</li>
+                        <li>Resource verification / collaborative spam
+                        filtering</li>
+                        <li>A universal Key/Value store (the drogulus)</li>
+                        <li>Co-ordinating distributed computation</li>
+                        <li>Distributed file system (FUSE?/Tahoe-lafs)</li>
+                        <li>Generic resource discovery/delivery mechanism</li>
+                        <li class="fragment">???</li>
+                        <li class="fragment">PROFIT!!!&nbsp;&nbsp;&nbsp;;-)</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>It should be as simple as...</h2>
+                    <pre><code contenteditable class="python">
+    from p4p2p import get_node
+
+    node = get_node()
+    chat_api = node.get_app("chat-1.0")
+    room_api = chat_api.join_room("sprint")
+    while True:
+        msg = room_api.get_next_message()
+        if msg:
+            print(msg)
+                    </code></pre>
+                    <p class="fragment">A local instance of a P2P chat
+                    application is started. The "node" object represents the
+                    local machine on the global P2P network and is the
+                    reference used by all local applications to communicate
+                    with the P2P network. The "chat_api" represents the P2P
+                    chat application.</p>
+                </section>
+                <section>
+                    <section>
+                        <h2>Peer Discovery &amp; Communication</h2>
+                        <ul>
+                            <li class="fragment">The P2P network is a set of
+                            nodes within a
+                            <strong><u>key</u></strong> space whose size is the
+                            output range of a hashing function (e.g.
+                            SHA512).</li>
+                            <li class="fragment">Each
+                            <strong><u>node</u></strong>
+                            has a unique <strong><u>ID</u></strong> that is a
+                            hash.</li>
+                            <li class="fragment">A node has a
+                            <strong><u>position</u></strong> within the P2P
+                            network (derived from the value of its
+                            hash/id) allowing a notion of
+                            <strong><u>distance</u></strong>.</li>
+                            <li class="fragment">Nodes track peers
+                            / position / distance in a
+                            <strong><u>routing table</u></strong>.</li>
+                            <li class="fragment">There are three basic
+                            operations:
+                                <ol>
+                                    <li>Add our own contact details to a
+                                    <strong><u>set</u></strong> identified by a
+                                    <strong><u>key</u></strong>.</li>
+                                    <li>A
+                                    <strong><u>recursive lookup</u></strong>
+                                    used to find nodes and get sets.</li>
+                                    <li>Handle messages scoped by a
+                                    <strong><u>namespace</u></strong>.</li>
+                                </ol>
+                            </li>
+                            <li class="fragment">Each
+                            <strong><u>set</u></strong>'s
+                            <strong><u>key</u></strong>
+                            is a hash seeded by a
+                            <strong><u>namespace</u></strong>.</li>
+                            <li class="fragment"><strong><u>Nodes</u></strong>
+                            manage <strong><u>sets</u></strong> whose
+                            <strong><u>keys</u></strong> are close to the node's
+                            <strong><u>ID</u></strong>.</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Routing Tables FTW</h2>
+                        <img src="assets/images/nodes.png"/>
+                    </section>
+                    <section>
+                        <h2>Me and My Routing Table</h2>
+                        <img src="assets/images/me-rt.png"/>
+                    </section>
+                    <section>
+                        <h2>Interactions give tracking data</h2>
+                        <img src="assets/images/contact.jpg"/>
+                        <p>(ID, IP address and port etc...)</p>
+                    </section>
+                    <section>
+                        <h2><span style="color: blue">Peers</span> stored in
+                        fixed size
+                        <span style="border: 1px #737373 solid; padding-left:8px; padding-right: 8px;">buckets</span></h2>
+                        <img src="assets/images/peers-rt.png"/>
+                    </section>
+                    <section>
+                        <h2>Buckets contain the same number of peer nodes</h2>
+                        <br/>
+                        <h2>Buckets cover a smaller range the closer they are
+                        to the local node</h2>
+                        <br/>
+                        <h2>Ergo, the local node knows more closer nodes</h2>
+                    </section>
+                    <section>
+                        <h2><span style="color: blue">Peers</span> stored in
+                        fixed size
+                        <span style="border: 1px #737373 solid; padding-left:8px; padding-right: 8px;">buckets</span></h2>
+                        <img src="assets/images/peers-rt.png"/>
+                    </section>
+                    <section>
+                        <h1>Ignore unresponsive peers,
+                        Refresh the Buckets,
+                        Re-publish &amp; Cache items</h1>
+                        <p>(To keep the network up-to-date and responsive)</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Recursive Lookup</h2>
+                        <img src="assets/images/kevin-bacon.jpg"/>
+                    </section>
+                    <section>
+                        <h2>Six degrees of separation</h2>
+                        <img src="assets/images/lookup1.png"/>
+                    </section>
+                    <section>
+                        <h2>Ask <span style="color: #008400">closest known
+                        peers</span></h2>
+                        <img src="assets/images/lookup2.png"/>
+                    </section>
+                    <section>
+                        <h2><span style="color: #008400">They</span> reply
+                        with <span style="color: #d73f87">closer
+                        peers</span></h2>
+                        <img src="assets/images/lookup3.png"/>
+                    </section>
+                    <section>
+                        <h2><span style="color: #d73f87">They</span> reply
+                        with the
+                        <span style="color: #ff4b00">target</span></h2>
+                        <img src="assets/images/lookup4.png"/>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h1>Namespaces</h1>
+                        <p>Identify yourself to your peers and find
+                        others</p>
+                        <img src="assets/images/wltm.jpg"/>
+                    </section>
+                    <section>
+                        <h2>Join a Namespace</h2>
+                        <pre><code contenteditable class="python">
+from p4p2p import get_node
+from hashlib import sha512
+
+node = get_node()
+key = sha512("arbitrary_namespace")
+node.join_namespace(key)
+                        </code></pre>
+                        <p class="fragment">Look up nodes close to the
+                        key for the namespace. Ask the nodes to add you to
+                        the namespace's set (or create a new set with just
+                        you in it).</p>
+                    </section>
+                    <section>
+                        <h2>Who's in the namespace..?</h2>
+                        <p>A lookup only returns the <em>K</em> longest lived
+                        yet still active peers known to the remote node
+                        (where <em>K</em> is a global replication constant -
+                        commonly set to 20).</p>
+                        <div class="fragment">
+                        <img src="assets/images/oldreliable.jpg"/>
+                        <p>(These are likely to be the most
+                        reliable nodes within the namespace)</p>
+                        </div>
+                    </section>
+                    <section>
+                        <h2>Global / Namespaced Routing Tables</h2>
+                        <p>Reliable peers are used to seed a
+                        <strong><u>new routing table</u></strong>
+                        that only contains nodes self-identified as
+                        members.</p>
+                        <ul>
+                        <li class="fragment">Apps are associated with such
+                        namespaced routing tables.</li>
+                        <li class="fragment">Apps expect peers in such
+                        namespaced routing tables to have locally running
+                        instances of the app.</li>
+                        <li class="fragment">Apps send and recieve app specific
+                        messages to each other via P4P2P or, if required, out
+                        of band.</li>
+                        <li class="fragment">Global and namespaced routing
+                        tables keep membership in sync.</li>
+                    </section>
+                    <section>
+                        <h2>Global / Namespaced Routing Tables</h2>
+                        <img src="assets/images/peerplatform.png"/>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Application Deployment &amp; Execution</h2>
+                        <ul>
+                            <li>Applications run locally in a sandbox.</li>
+                            <li class="fragment">Can be fetched from the
+                            P2P network (or elsewhere, like PyPI).</li>
+                            <li class="fragment">Have autonomy regarding
+                            API and RPC message design.</li>
+                            <li class="fragment">May rely upon or re-use
+                            functionality from other apps.</li>
+                            <li class="fragment">Are run independently of
+                            each other.</li>
+                        </ul>
+                    </section>
+                </section>
+                <section>
+                    <h1>Image Credits</h1>
+                    <p>Licensed under <a href="http://creativecommons.org/licenses/by/2.0/deed.en_GB">CC BY 2.0</a></p>
+                    <ul>
+                        <li><a href="http://www.flickr.com/photos/11247304@N06/1340979043/">Blue Sky</a></li>
+                        <li><a href="http://www.flickr.com/photos/caseorganic/4536319810/">Business card</a></li>
+                        <li><a href="http://www.flickr.com/photos/dwnews/8363649686/">Kevin Bacon</a></li>
+                        <li><a href="http://www.flickr.com/photos/adamfletcher/3465305445//">Lonely Hearts Ad</a></li>
+                        <li><a href="http://www.flickr.com/photos/wiredwitch/8459582068/">Reliable Old Dog</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <h1>Questions..?</h1>
+                </section>
+            </div>
+            <aside class="controls" style="display: block;">
+                <a class="left" href="#">&#x25C4;</a>
+                <a class="right" href="#">&#x25BA;</a>
+                <a class="up" href="#">&#x25B2;</a>
+                <a class="down" href="#">&#x25BC;</a>
+            </aside>
+
+            <div class="progress"><span></span></div>
+        </div>
+        <!-- Optional libraries for code syntax highlighting and classList support in IE9 -->
+        <script src="lib/highlight.js"></script>
+        <script src="lib/classList.js"></script>
+        <script src="js/reveal.min.js"></script>
+        <script>
+            Reveal.initialize({
+                // Display controls in the bottom right corner
+                controls: true,
+
+                // Display a presentation progress bar
+                progress: true,
+
+                // If true; each slide will be pushed to the browser history
+                history: true,
+
+                // Loops the presentation, defaults to false
+                loop: false,
+
+                // Flags if mouse wheel navigation should be enabled
+                mouseWheel: false,
+
+                // Apply a 3D roll to links on hover
+                rollingLinks: false,
+
+                // UI style
+                theme: 'default',
+
+                // Transition style
+                transition: 'linear'
+            });
+            hljs.initHighlightingOnLoad();
+        </script>
+    </body>
+</html>
