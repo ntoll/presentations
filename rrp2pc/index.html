@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js - The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+                <section>
+                    <h1>The Return of The Return of Peer to Peer Computing</h1>
+                    <p>
+                        <small>
+                            <a href="http://ntoll.org">Nicholas H.Tollervey</a>
+                            / <a href="http://twitter.com/ntoll">@ntoll</a>
+                            <br/>
+                            (with help from
+                            <a href="http://merlinux.eu">Holger Krekel</a> /
+                            <a href="http://twitter.com/hpk42">@hpk42</a>)
+                        </small>
+                    </p>
+                </section>
+                <section>
+                    <h1>Aim:</h1>
+                    <h2>A context in which
+                    <strong>you</strong> may think</h2>
+                </section>
+                <section>
+                    <h1>Part #1 - Motivations</h1>
+                </section>
+                <section>
+                    <img src="images/snowden.jpg"/>
+                </section>
+                <section>
+                    <h1>Moral Panic</h1>
+                    <img src="images/scream.jpg"/>
+                </section>
+                <section>
+                    <video width="800" height="600" controls="controls">
+                        <source src="images/nothingtofear.mp4" type="video/mp4">
+                    </video>
+                </section>
+                <section>
+                    <img src="images/zuckerberg.jpg"/>
+                </section>
+                <section>
+                    <img src="images/schmidt.jpg"/>
+                </section>
+                <section>
+                    <h1>WRONG!</h1>
+                    <p>It's a false dichotemy.</p>
+                    <ul>
+                        <li class="fragment">It's not you who determines if
+                        you have anything to hide.</li>
+                        <li class="fragment">It assumes surveillance results
+                        in correct data and sound judgement.</li>
+                        <li class="fragment">Rules change.</li>
+                        <li class="fragment">Breaking the law isn't
+                        necessarily bad (viz. Ghandi, Jesus, Mandela,
+                        Socrates).</li>
+                        <li class="fragment">Those who say privacy is dead
+                        are the ones that gain the most from
+                        surveillance.</li>
+                        <li class="fragment">Privacy is a fundamental human
+                        right.</li>
+                    </ul>
+                </section>
+                <section>
+                    <h1>Politics</h1>
+                    <h2>What has that got to do with programming?</h2>
+                </section>
+                <section>
+                    <h2>We're engineers!</h2>
+                    <p>We ask questions like...</p>
+                    <ul>
+                    <li class="fragment">What is the best way to organise
+                    computational resources? (Questions about architecture
+                    &amp; design.)
+                    </li>
+                    <li class="fragment">How should such arrangements be
+                    created? (TDD, Agile, with Python etc...)</li>
+                    <li class="fragment">Who or what is responsible for
+                    making things work? (Standards, roles, authorisation.)</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Political Philosophers!</h2>
+                    <p>Asks questions like...</p>
+                    <ul>
+                    <li class="fragment">What is the best way to organise
+                    humanity? (Forms of government: democracy, corporate
+                    structures.)</li>
+                    <li class="fragment">How should such arrangements be
+                    created? (Justice, rights, the law etc...)</li>
+                    <li class="fragment">Who or what is responsible for
+                    making things work? (Power, authority, governance.)</li>
+                </section>
+                <section>
+                    <h1>Programming <strong>is</strong> politics</h1>
+                    <h2 class="fragment">we're asking and
+                    answering questions about organisation, process, power
+                    &amp; control.</h2>
+                </section>
+                <section>
+                    <h1>Part #2 - Questions</h1>
+                </section>
+                <section>
+                    <h2>The Return of Peer-to-Peer Computing</h2>
+                    <a href="https://www.youtube.com/watch?v=SCgl0xXFVOg">
+                        <img src="images/holger.png"/>
+                    </a>
+                </section>
+                <section>
+                    <h2>What digital world do I want to live
+                    in?</h2>
+                    <h2 class="fragment">What software do I want to
+                    create?</h2>
+                    <h2 class="fragment">What legacy do I leave for my
+                    children?</h2>
+                </section>
+                <section>
+                    <h2>Is Peer-to-Peer the answer to concerns over
+                    power &amp; control in a digital world?</h2>
+                </section>
+                <section>
+                    <h1>What is Peer-to-Peer (P2P)..?</h1>
+                    <p class="fragment">Peers of equal status (devices running
+                    appropriate software) cooperate in a loose decentralised
+                    network for mutual benefit. Peer-to-peer is the antithesis
+                    of hierarchy - where some have elevated status and power
+                    over others.</p>
+                </section>
+                <section>
+                    <img src="images/topology.png"/>
+                    <p class="fragment">Peer-to-Peer (left) vs. Client/Server
+                    (right)</p>
+                </section>
+                <section>
+                    <h2>The client/server architecture of the web is a
+                    fundamental problem because the server always has power
+                    over the client.</h2>
+                </section>
+                <section>
+                    <img src="images/451.jpg"/>
+                </section>
+                <section>
+                    <h2>The server is a single point of failure that is also
+                    the obvious target of attacks.</h2>
+                </section>
+                <section>
+                    <img src="images/fail_cthulhu.png"/>
+                </section>
+                <section>
+                    <h2>(Although sometimes hierarchy is good)</h2>
+                    <img src="images/surgeon.jpg"/>
+                    <p>(Especially when command and control saves lives.)</p>
+                </section>
+                <section>
+                    <p>In an ideal world, hierarchy is best when the obvious
+                    skill, knowledge and capabilities of an entity are
+                    acknowledged to bring about greater benefit for all.</p>
+                    <p class="fragment">In an ideal world, those with
+                    elevated status and authority would have earned it via
+                    reliable and consistent public displays of such skill,
+                    knowledge and capabilities.</p>
+                    <p class="fragment">In an ideal world, the responsibility
+                    and trust associated with status and authority would be a
+                    serious yet welcome obligation.</p>
+                </section>
+                <section>
+                    <h2>We do not live in an ideal world</h2>
+                    <h1>:-(</h1>
+                </section>
+                <section>
+                    <h1>Part #3 - Actions</h1>
+                </section>
+                <section>
+                    <h2>sprint!</h2>
+                    <p>At which we grew a community interested in:</p>
+                    <ol>
+                        <li>Redecentralisation of the internet;</li>
+                        <li>Exploring existing solutions;</li>
+                        <li>Doing something practical.</li>
+                    </ol>
+                </section>
+                <section>
+                    <h2>sprint!</h2>
+                    <p>At which we asked ourselves two questions:</p>
+                    <ol>
+                        <li>What are the fundamental elements of a P2P
+                        system?</li>
+                        <li>What can we build that is useful?</li>
+                    </ol>
+                </section>
+                <section>
+                    <h2>sprint!</h2>
+                    <p>At which we explored three technologies:</p>
+                    <ol>
+                        <li>Bitcoin;</li>
+                        <li>P2P Messaging;</li>
+                        <li>Distributed Hash Tables.</li>
+                    </ol>
+                </section>
+                <section>
+                    <h2>sprint!</h2>
+                    <p>At which we plugged Holger into the Matrix:</p>
+                    <img src="images/holger_plugged_in.png"/>
+                    <p class="fragment">Seriously, these are interesting and
+                    fun problems.</p>
+                </section>
+                <section>
+                    <h1>Part #4 - Outcomes</h1>
+                </section>
+                <section>
+                    <h2>Bitcoin</h2>
+                    <h3>The subject of much discussion</h3>
+                </section>
+                <section>
+                    <h2>Pyramid scheme?</h2>
+                    <img src="images/pyramid.jpg"/>
+                </section>
+                <section>
+                    <h2>P2P Global Ledger is Interesting</h2>
+                    <img src="images/ledger.jpg"/>
+                </section>
+                <section>
+                    <blockquote>"Who controls the past, controls the future:
+                    who controls the present controls the past." ~
+                    1984</blockquote>
+                </section>
+                <section>
+                    <h2>Who's Hyped, Mad or Enlightened?</h2>
+                    <img src="images/madmax.png"/>
+                </section>
+                <section>
+                    <h2>Not much Python</h2>
+                    <p>(Some shims over the Bitcoin Client's JSON API)</p>
+                </section>
+                <section>
+                    <h2>P2P Chat</h2>
+                    <p>Holger's "test card". Several of the group already
+                    involved in chat based technology (Crypho).</p>
+                </section>
+                <section>
+                    <h2>Distributed Hash Tables</h2>
+                    <p>My current obsession as the drogulus.</p>
+                    <ul>
+                        <li>A distributed and decentralised dictionary / data
+                        store;</li>
+                        <li class="fragment">No single point of failure or
+                        inadvertent point of control (e.g. no need for
+                        DNS);</li>
+                        <li class="fragment">Scales to huge numbers of nodes
+                        (redundancy++);</li>
+                        <li class="fragment">Relatively efficient;</li>
+                        <li class="fragment">Good handling of fluid network
+                        membership;</li>
+                        <li class="fragment">Solid foundation for
+                        infrastructure (resource discovery, key/value store,
+                        CDN etc...)</li>
+                        <li class="fragment">Tested in the real world
+                        (Bittorrent, Freenet &amp; others).</li>
+                    </ul>
+                </section>
+				<section>
+					<h1>THE END</h1>
+				</section>
+                <section>
+                    <h2>Image Credits</h2>
+                    <ul>
+                        <li><a href="http://progresoweekly.us/wp-content/uploads/2013/07/Edward-Snowden1.jpg">Edward Snowden</a></li>
+                        <li><a href="https://en.wikipedia.org/wiki/The_Scream#mediaviewer/File:The_Scream.jpg">The Scream</a></li>
+                        <li><a href="https://www.youtube.com/watch?v=lWam4EWI48M">William Hague</a></li>
+                        <li><a href="http://charlotte.quepasanoticias.com/images/qpnoticias/DigitalWeb/2013-04-16-2013-04-30/mark-zuckerberg.jpg">Mark Zuckerberg</a></li>
+                        <li><a href=http://www.tecnoetc.com.br/wp-content/uploads/2012/09/eric-schmidt-google.jpg"">Eric Schmidt</a></li>
+                        <li><a href="http://httpstatusdogs.com/451-unavailable-for-legal-reasons">HTTP Status Dogs</a></li>
+                        <li><a href="http://www.superpunch.net/2010/07/cthulhu-as-twitters-fail-whale.html">Fail Cthulhu</a></li>
+                        <li><a href="https://upload.wikimedia.org/wikipedia/commons/e/e3/Kheops-Pyramid.jpg">Pyramid of Kheops</a></li>
+                        <li><a href="https://flic.kr/p/dnbQQU">Surgeon</a></li>
+                        <li><a href="https://flic.kr/p/B2YPU">Ledger</a></li>
+                    </ul>
+                    <p><small>The rest &copy; 2014 the author.</small></p>
+                </section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: 'sky', // available themes are in /css/theme
+				transition: 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
