@@ -160,7 +160,7 @@
                         you have anything to hide.</li>
                         <li class="fragment">It assumes surveillance results
                         in correct data and sound judgement.</li>
-                        <li class="fragment">Rules change.</li>
+                        <li class="fragment">Rules and governments change.</li>
                         <li class="fragment">Breaking the law isn't
                         necessarily bad (viz. Ghandi, Jesus, Mandela,
                         Socrates).</li>
@@ -279,8 +279,9 @@
                     </aside>
                 </section>
                 <section>
-                    <h2>Is Peer-to-Peer the answer to concerns over
-                    power &amp; control in a digital world?</h2>
+                    <h2>Is Peer-to-Peer and ubiquitous strong cryptography the
+                    answer to concerns over power &amp; control in a digital
+                    world?</h2>
                     <aside class="notes">
                         <ul>
                             <li>Myself, Holger and many others believe that
@@ -293,6 +294,7 @@
                 </section>
                 <section>
                     <h1>What is Peer-to-Peer (P2P)..?</h1>
+                    <h2>(I'll assume you know what cryptography is)</h2>
                     <p class="fragment">Peers of equal status (devices running
                     appropriate software) cooperate in a loose decentralised
                     network for mutual benefit. Peer-to-peer is the antithesis
@@ -330,18 +332,21 @@
                 <section>
                     <h2>(Although sometimes hierarchy is good)</h2>
                     <img src="images/surgeon.jpg"/>
-                    <p>(Especially when command and control saves lives.)</p>
+                    <p>(Especially when it is more efficient
+                    &amp; saves lives.)</p>
                     <aside class="notes">
-                    <p>In an ideal world, hierarchy is best when the obvious
+                    <ul>
+                    <li>In an ideal world, hierarchy is best when the obvious
                     skill, knowledge and capabilities of an entity are
-                    acknowledged to bring about greater benefit for all.</p>
-                    <p>In an ideal world, those with
+                    acknowledged to bring about greater benefit for all.</li>
+                    <li>In an ideal world, those with
                     elevated status and authority would have earned it via
                     reliable and consistent public displays of such skill,
-                    knowledge and capabilities.</p>
-                    <p>In an ideal world, the responsibility
+                    knowledge and capabilities.</li>
+                    <li>In an ideal world, the responsibility
                     and trust associated with status and authority would be a
-                    serious yet welcome obligation.</p>
+                    serious yet welcome obligation.</li>
+                    </ul>
                     </aside>
                 </section>
                 <section>
@@ -363,6 +368,7 @@
                     <p>At which we grew a community interested in:</p>
                     <ol>
                         <li>Redecentralisation of the internet;</li>
+                        <li>Promoting non-surveilled communication;</li>
                         <li>Exploring existing solutions;</li>
                         <li>Doing something practical.</li>
                     </ol>
@@ -371,7 +377,7 @@
                     <h2>sprint!</h2>
                     <p>At which we asked ourselves two questions:</p>
                     <ol>
-                        <li>What are the fundamental elements of a P2P
+                        <li>What are the fundamental elements of a secure P2P
                         system?</li>
                         <li>What can we build that is useful?</li>
                     </ol>
@@ -385,7 +391,7 @@
                         <li>WebRTC</li>
                         <li>Distributed Hash Tables / Drogulus;</li>
                         <li>Tahoe-LAFS</li>
-                        <li>Crypto "stuff"</li>
+                        <li>Crypto "stuff" (techniques &amp; solutions)</li>
                         <li>Many others</li>
                     </ul>
                 </section>
@@ -399,73 +405,156 @@
                 </section>
                 <section>
                     <h1>Organise!</h1>
-                    <h2>At conferences and getherings like this one.</h2>
+                    <h2>At conferences and gatherings like this one.</h2>
+                    <aside class="notes">
+                        <p>Carpe Diem</p>
+                    </aside>
+                </section>
+                <section>
+                    <h1>Prototype!</h1>
+                    <h2>At conferences and gatherings like this one.</h2>
+                    <aside class="notes">
+                        <p>This stuff isn't going to happen by itself.</p>
+                    </aside>
                 </section>
                 <section>
                     <h1>Part #4 - Outcomes</h1>
                 </section>
                 <section>
-                    We've worked on several software ideas: p2p chat and
-                    DHT/drogulus (describe these).
-
-                    A fundamental problem is discoverablility - P4P2P is one
-                    way to aid this through DHT within DHT (or namespaced
-                    DHTs).
-
-                    Many solutions already exist but only a few have had any
-                    success (mainly Bittorrent, Bitcoin in new-ish tech -
-                    although many examples from old tech like email and IRC)
-
-                    What are the economic motivations for P2P. A worthy cause
-                    doesn't make a business case (at best it's merely a
-                    charity case).
-
-                    Call to arms. BoF on P2P this evening. If you're
-                    interested come along and let's organise.
-                </section>
-                <section>
-                    <h2>P2P Chat</h2>
-                    <p>Holger's "test card". Several of the group already
-                    involved in chat based technology (Crypho).</p>
-                </section>
-                <section>
-                    <h2>Distributed Hash Tables</h2>
-                    <p>My current obsession as the drogulus.</p>
+                    <h1>Prototypes &amp; Hacks!</h1>
                     <ul>
-                        <li>A distributed and decentralised dictionary / data
-                        store;</li>
-                        <li class="fragment">No single point of failure or
-                        inadvertent point of control (e.g. no need for
-                        DNS);</li>
-                        <li class="fragment">Scales to huge numbers of nodes
-                        (redundancy++);</li>
-                        <li class="fragment">Relatively efficient;</li>
-                        <li class="fragment">Good handling of fluid network
-                        membership;</li>
-                        <li class="fragment">Solid foundation for
-                        infrastructure (resource discovery, key/value store,
-                        CDN etc...)</li>
-                        <li class="fragment">Tested in the real world
-                        (Bittorrent, Freenet &amp; others).</li>
+                        <li>P2P cryptographic messaging</li>
+                        <li>Universal DHT (as a platform) - the drogulus</li>
                     </ul>
+                    <aside class="notes">
+                        <p>This stuff isn't going to happen by itself.</p>
+                    </aside>
+                </section>
+                <section>
+                    <h1>Messaging</h1>
+                    <img src="images/can.jpg"/>
+                    <aside class="notes">
+                        <p>Holger's test card</p>
+                        <p>Expertise within the group (Crypho)</p>
+                        <p>Retroshare meets many (but not all) our needs</p>
+                    </aside>
+                </section>
+                <section>
+                    <h1>P2P Crypto Messaging</h1>
+                    <h2>Problem: secure decentralised message delivery to
+                    offline peers.</h2>
+                    <aside class="notes">
+                        <ul>
+                            <li>Can trusted online friends "pass the message"
+                            until delivered?</li>
+                            <li>Can this be done in a completely decentralised
+                            way?</li>
+                            <li>Signalling and discovery are key! How? With a
+                            DHT!</li>
+                        </ul>
+                    </aside>
+                </section>
+                <section>
+                    <h1>Universal DHT</h1>
+                    <img src="images/distributed.jpg"/>
+                    <aside class="notes">
+                        <ul>
+                            <li>A distributed and decentralised k/v store.</li>
+                            <li>No single point of failure or control</li>
+                            <li>Scales to huge numbers of nodes</li>
+                            <li>Lookup is relatively efficient</li>
+                            <li>Good handling of fluid network membership</li>
+                            <li>Tested in real world (Bittorrent, Freenet
+                            etc)</li>
+                        </ul>
+                    </aside>
+                </section>
+                <section>
+                    <h1>Universal DHT</h1>
+                    <h2>My current obsession as the drogulus</h2>
+                    <p class="fragment">Solves the problem of
+                    discoverability and signalling.</p>
+                    <p class="fragment">P4P2P - DHT within DHT (or
+                    namespaced / scoped DHT).</p>
+                </section>
+                <section>
+                    <img src="images/unicorn.jpg"/>
+                    <aside class="notes">
+                        Sounds far too utopian for me.
+                    </aside>
+                </section>
+                <section>
+                    <h1>WHY? You're crazy!</h1>
+                </section>
+                <section>
+                    <h1>What about the economic argument for this?</h1>
+                    <h2>(How is development funded?)</h2>
+                </section>
+                <section>
+                    <h2>Serendipity?</h2>
+                    <h2>Values?</h2>
+                    <h2>Fun?</h2>
+                    <h2><strong>That</strong> itch?</h2>
+                </section>
+                <section>
+                    <img src="images/tim.jpg"/>
+                    <aside class="notes">
+                        There was no economic argument when the web was
+                        born.
+                    </aside>
+                </section>
+                <section>
+                    <img src="images/gibson.jpg"/>
+                    <aside class="notes">
+                        William Gibson (sci-fi author) back in 1996.
+                    </aside>
+                </section>
+                <section>
+                    <img src="images/kay.jpg"/>
+                    <aside class="notes">
+                        <p>Alan Kay.</p>
+                        <p>Also: The best way to predict the future is to
+                        invent it.</p>
+                    </aside>
+                </section>
+                <section>
+                    <img src="images/tablet.jpg"/>
+                    <aside class="notes">
+                        <p>A Mesopotamian clay tablet: it records the
+                        allocation of beer by administrators in the city of
+                        Uruk. The symbol representing beer is an upright jar
+                        with a pointed base, amounts are notated by circles
+                        and semi-circles and, at the bottom left, there is a
+                        figure drinking from a bowl.</p>
+                        <p>5100 years old (earliest writing) The WWW is our
+                        cuniform clay tablet.</p>
+                        <p></p>
+                    </aside>
+                </section>
+                <section>
+                    <h1>BOF 17:30 in ???</h1>
                 </section>
 				<section>
 					<h1>THE END</h1>
 				</section>
                 <section>
                     <h2>Image Credits</h2>
-                    <ul>
-                        <li><a href="http://progresoweekly.us/wp-content/uploads/2013/07/Edward-Snowden1.jpg">Edward Snowden</a></li>
-                        <li><a href="https://en.wikipedia.org/wiki/The_Scream#mediaviewer/File:The_Scream.jpg">The Scream</a></li>
-                        <li><a href="https://www.youtube.com/watch?v=lWam4EWI48M">William Hague</a></li>
-                        <li><a href="http://charlotte.quepasanoticias.com/images/qpnoticias/DigitalWeb/2013-04-16-2013-04-30/mark-zuckerberg.jpg">Mark Zuckerberg</a></li>
-                        <li><a href=http://www.tecnoetc.com.br/wp-content/uploads/2012/09/eric-schmidt-google.jpg"">Eric Schmidt</a></li>
-                        <li><a href="http://httpstatusdogs.com/451-unavailable-for-legal-reasons">HTTP Status Dogs</a></li>
-                        <li><a href="http://www.superpunch.net/2010/07/cthulhu-as-twitters-fail-whale.html">Fail Cthulhu</a></li>
-                        <li><a href="https://upload.wikimedia.org/wikipedia/commons/e/e3/Kheops-Pyramid.jpg">Pyramid of Kheops</a></li>
-                        <li><a href="https://flic.kr/p/dnbQQU">Surgeon</a></li>
-                        <li><a href="https://flic.kr/p/B2YPU">Ledger</a></li>
-                    </ul>
+                    <p>    <a href="http://progresoweekly.us/wp-content/uploads/2013/07/Edward-Snowden1.jpg">Edward Snowden</a>
+                        <a href="https://en.wikipedia.org/wiki/The_Scream#mediaviewer/File:The_Scream.jpg">The Scream</a>
+                        <a href="https://www.youtube.com/watch?v=lWam4EWI48M">William Hague</a>
+                        <a href="http://charlotte.quepasanoticias.com/images/qpnoticias/DigitalWeb/2013-04-16-2013-04-30/mark-zuckerberg.jpg">Mark Zuckerberg</a>
+                        <a href=http://www.tecnoetc.com.br/wp-content/uploads/2012/09/eric-schmidt-google.jpg"">Eric Schmidt</a>
+                        <a href="http://httpstatusdogs.com/451-unavailable-for-legal-reasons">HTTP Status Dogs</a>
+                        <a href="http://www.superpunch.net/2010/07/cthulhu-as-twitters-fail-whale.html">Fail Cthulhu</a>
+                        <a href="https://flic.kr/p/dnbQQU">Surgeon</a>
+                        <a href="https://flic.kr/p/dvyiH1">Tin Can Phone</a>
+                        <a href="https://flic.kr/p/7Nepq9">Distributed Encyclopedia</a>
+                        <a href="http://greywolf.critter.net/images/gallery/critters/2007-09-14-happy-pink-unicorn.jpg">Unicorn</a>
+                        <a href="https://static-secure.guim.co.uk/sys-images/Guardian/Pix/pictures/2013/12/26/1388073980732/Tim-Berners-Lee-Thought-f-014.jpg">Sir Tim B.L.</a>
+                        <a href="https://upload.wikimedia.org/wikipedia/commons/a/a4/William_Gibson_60th_birthday_portrait.jpg">William Gibson</a>
+                        <a href="https://upload.wikimedia.org/wikipedia/commons/7/76/Alan_Kay_%283097597186%29.jpg">Alan Kay</a>
+                        <a href="http://ntoll.org/article/long-term-view">Cuniform Tablet</a>
+                    </p>
                     <p><small>The rest &copy; 2014 the author.</small></p>
                 </section>
 			</div>
