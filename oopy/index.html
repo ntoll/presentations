@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Gentle Object Oriented Programming in Python</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+                <section>
+                    <h2>Gentle Object Oriented Programming in Python</h2>
+                    <p>
+                        <small>
+                            <a href="http://ntoll.org">Nicholas H.Tollervey</a>
+                            / <a href="http://twitter.com/ntoll">@ntoll</a>
+                            <br/>
+                            <a href="http://learnpython.wordpress.com/">Naomi Ceder</a> /
+                            <a href="http://twitter.com/NaomiCeder">@NaomiCeder</a>
+                        </small>
+                    </p>
+                    <aside class="notes">
+                        <ul>
+                            <li>These are where the speaker's notes go.</li>
+                        <ul>
+                    </aside>
+                </section>
+                <section>
+                    <img src="images/talk.jpg"/>
+                    <p>We model the world with language.</p>
+                    <aside class="notes">
+                        <ul>
+                            <li>We use language to make sense of the
+                            world.</li>
+                            <li>Language facilitates interaction with the
+                            world.</li>
+                            <li>By naming things we define them and turn them
+                            into concepts.</li>
+                        <ul>
+                    </aside>
+                </section>
+                <section>
+                    <h2>Language includes:</h2>
+                    <ul>
+                        <li class="fragment">Naming types of things (cats, dogs, cows)</li>
+                        <li class="fragment">Naming specific things (Garfield, Snoopy, Buttercup)</li>
+                        <li class="fragment">Describing actions (run, walk, smile, love, hate)</li>
+                        <li class="fragment">Attributing qualities (red, furry, hot, scary)</li>
+                    </ul>
+                    <p class="fragment"><br/>Nouns, proper nouns, verbs and adjectives.</p>
+                </section>
+                <section>
+                    <h2>Computers need to model the world too!</h2>
+                    <p>That's what Object Oriented Programming is for.</p>
+                </section>
+                <section>
+                    <h1>Basic<br/>Concepts</h1>
+                </section>
+                <section>
+                    <p>A <strong><u>class</u></strong> defines a type of thing</p>
+                    <img src="images/cow-class.jpg">
+                </section>
+                <section>
+                    <p>An <strong><u>object</u></strong> is an instance of a class</p>
+                    <img src="images/cow-instance.jpg">
+                </section>
+                <section>
+                    <p>A <strong><u>method</u></strong> specifies something an object does</p>
+                    <img src="images/cow-method.jpg">
+                </section>
+                <section>
+                    <p>An <strong><u>attribute</u></strong> defines the quality of an object</p>
+                    <img src="images/cow-attribute.jpg">
+                </section>
+                <section>
+                    <h2>Crib sheet</h2>
+                    <ul>
+                        <li class="fragment">Class = Noun</li>
+                        <li class="fragment">Object = Proper noun</li>
+                        <li class="fragment">Method = Verb</li>
+                        <li class="fragment">Attribute = Adjective</li>
+                    </ul>
+                    <p class="fragment">(This is not entirely
+                    accurate but is close enough for today)</p>
+                </section>
+                <section>
+                    <h1>What about Python?</h2>
+                </section>
+                <section>
+                    <h2>Python Refresher:</h2>
+                    <pre><code contenteditable class="python">
+    def hello(name='World!'):
+        """
+        A function to return a greeting.
+        """
+        return 'Hello, {}'.format(name)
+                    </code></pre>
+                    <p>A function used like this:</p>
+                    <pre><code contenteditable class="python">
+    >>> hello()
+    'Hello, World!'
+    >>> hello('PyconUK')
+    'Hello, PyconUK'
+                    </code></pre>
+                </section>
+                <section>
+                    <h2>Python Classes</h2>
+                    <pre><code contenteditable class="python">
+    class Cow:
+        """
+        A pythonic cow. :-)
+        """
+
+        def __init__(self, name='Cow', breed=None):
+            """
+            Called when the class is instantiated.
+            """
+            self.name = name
+            self.breed = breed
+
+        def moo(self, message='MOO!'):
+            """
+            A bovine greeting function (see previous slide).
+            """
+            return '{} says, {}'.format(self.name, message)
+                    </pre></code>
+                    <p>Created in the file <code>cow.py</code></p>
+                </section>
+                <section>
+                    <h2>A Herd of Pythonic Cows</h2>
+                    <pre><code contenteditable class="python">
+    >>> from cow import Cow
+    >>> a_cow = Cow('Buttercup', 'Friesian')
+    >>> a_cow.name
+    'Buttercup'
+    >>> a_cow.breed
+    'Friesian'
+    >>> a_cow.moo()
+    'Buttercup says, MOO!'
+    >>> another_cow = Cow('Daisy', 'Galloway')
+    >>> another_cow.name
+    'Daisy'
+    >>> another_cow.breed
+    'Galloway'
+    >>> another_cow.moo('MooOOOOooooo!')
+    'Daisy says, MooOOOOooooo!'
+                    </code></pre>
+                    <p><code>a_cow</code> and <code>another_cow</code> are instances of the <code>Cow</code> class.</p>
+                </section>
+                <section>
+                    <img src="images/and_now_its_time_for_something_completely_different.jpg"/>
+                </section>
+                <section>
+                    <img src="images/dead-parrot.png"/>
+                </section>
+                <section>
+                    <h2>Your task...</h2>
+                    <ul>
+                        <li class="fragment">Create a "Parrot" class.</li>
+                        <li class="fragment">You must be able to give a parrot a name and catch-phrase (e.g. "Pieces of eight...").</li>
+                        <li class="fragment">Instantiate a Parrot with the name "Polly" and a catch-phrase of your choosing.</li>
+                        <li class="fragment">Call Polly's "speak" method so Polly returns her catch-phrase.</li>
+                        <li class="fragment">Bonus points for creativity and surprises!</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Show and Tell</h2>
+                </section>
+                <section>
+                    <h2>Image Credits</h2>
+                    <ul>
+                        <li>
+                            <a href="http://thestreetwhereyoulive.files.wordpress.com/2011/09/talk.jpg">Talk</a>
+                        </li>
+                        <li>
+                            <a href="http://i.huffpost.com/gen/1587802/thumbs/o-COW-facebook.jpg">Cow</a>
+                        </li>
+                    </ul>
+                </section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: 'sky', // available themes are in /css/theme
+				transition: 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
