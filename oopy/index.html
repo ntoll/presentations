@@ -123,21 +123,65 @@
                 <section>
                     <h2>Python Refresher:</h2>
                     <pre><code contenteditable class="python">
-    def hello(name='World!'):
+    def moo(name, message='MOO!'):
         """
         A function to return a greeting.
         """
-        return 'Hello, {}'.format(name)
+        return '{} says, {}'.format(name, message)
                     </code></pre>
                     <p>A function used like this:</p>
                     <pre><code contenteditable class="python">
-    >>> hello()
-    'Hello, World!'
-    >>> hello('PyconUK')
-    'Hello, PyconUK'
+    >>> moo('Buttercup')
+    'Buttercup says, MOO!'
+    >>> moo('Daisy', 'MooOOOOooooo!')
+    'Daisy says, MooOOOOooooo!'
                     </code></pre>
                 </section>
                 <section>
+		    <h2>Growing the Herd...</h2>
+		    <p>If we have 4 cows...</p>
+		    <pre><code contenteditable class="python">
+    >>> a_cow = 'Buttercup'
+    >>> another_cow = 'Daisy'
+    >>> yet_another_cow = 'Bessie'
+    >>> yet_another_other_cow = 'Clover'
+    >>> a_cow_breed = 'Friesian'
+    >>> another_cow_breed = 'Galloway'
+    >>> yet_another_cow_breed = 'Guernsey'
+    >>> yet_another_other_cow_breed = 'Dexter'
+                    </code></pre>
+                    <p>But what if we have 50 cows? 500?</p>
+		    
+                </section>
+
+                <section>
+		    <h2>lists help...</h2>
+		    <img src="images/cow-list.jpg">
+		    <pre><code contenteditable class="python">
+    >>> cow_names = ['Buttercup', 'Daisy', 'Bessie', 'Clover']
+    >>> cow_breeds = ['Friesian', 'Galloway', 'Guernsey', 'Dexter']
+                    </code></pre>
+                    <p>What could possibly go wrong with this?</p>
+		    
+                </section>
+                <section>
+		    <h2>Well, this...</h2>
+		    <pre><code contenteditable class="python">
+    >>> del cow_names[1]
+    >>> cow_names
+    >>>  ['Buttercup', 'Bessie', 'Clover']
+    >>> del cow_breeds[2]
+    >>> cow_breeds
+    >>> ['Friesian', 'Galloway','Dexter']
+                    </code></pre>
+                    <p>Uh-oh... </p>
+                    <p>Wouldn't it be nice if all of this cow stuff
+                could be bundled into cow-like packages?</p>
+		    
+                </section>
+
+
+		<section>
                     <h2>Python Classes</h2>
                     <pre><code contenteditable class="python">
     class Cow:
