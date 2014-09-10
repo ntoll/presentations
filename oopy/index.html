@@ -85,43 +85,10 @@
                 </section>
                 <section>
                     <h2>Computers need to model the world too!</h2>
-                    <p>That's what Object Oriented Programming is for.</p>
                 </section>
                 <section>
-                    <h1>Basic<br/>Concepts</h1>
-                </section>
-                <section>
-                    <p>A <strong><u>class</u></strong> defines a type of thing</p>
-                    <img src="images/cow-class.jpg">
-                </section>
-                <section>
-                    <p>An <strong><u>object</u></strong> is an instance of a class</p>
-                    <img src="images/cow-instance.jpg">
-                </section>
-                <section>
-                    <p>A <strong><u>method</u></strong> specifies something an object does</p>
-                    <img src="images/cow-method.jpg">
-                </section>
-                <section>
-                    <p>An <strong><u>attribute</u></strong> defines the quality of an object</p>
-                    <img src="images/cow-attribute.jpg">
-                </section>
-                <section>
-                    <h2>Crib sheet</h2>
-                    <ul>
-                        <li class="fragment">Class = Noun</li>
-                        <li class="fragment">Object = Proper noun</li>
-                        <li class="fragment">Method = Verb</li>
-                        <li class="fragment">Attribute = Adjective</li>
-                    </ul>
-                    <p class="fragment">(This is not entirely
-                    accurate but is close enough for today)</p>
-                </section>
-                <section>
-                    <h1>What about Python?</h2>
-                </section>
-                <section>
-                    <h2>Python Refresher:</h2>
+                    <h2>Like this:</h2>
+                    <p>(Python Refresher)</p>
                     <pre><code contenteditable class="python">
     def moo(name, message='MOO!'):
         """
@@ -129,7 +96,8 @@
         """
         return '{} says, {}'.format(name, message)
                     </code></pre>
-                    <p>A function used like this:</p>
+                    <p>A function takes arguments and returns a result,
+                    like this:</p>
                     <pre><code contenteditable class="python">
     >>> moo('Buttercup')
     'Buttercup says, MOO!'
@@ -174,14 +142,46 @@
     >>> cow_breeds
     >>> ['Friesian', 'Galloway','Dexter']
                     </code></pre>
-                    <p>Uh-oh... </p>
-                    <p>Wouldn't it be nice if all of this cow stuff
-                could be bundled into cow-like packages?</p>
-		    
+                    <h3>Uh-oh...</h3>
+                    <p>(what's gone wrong here..?)</p>
                 </section>
-
-
-		<section>
+                <section>
+                    <img src="images/royal-cows.jpg"/>
+                </section>
+                <section>
+                    <h1>Basic OOP<br/>Concepts</h1>
+                </section>
+                <section>
+                    <p>A <strong><u>class</u></strong> defines a type of thing</p>
+                    <img src="images/cow-class.jpg">
+                </section>
+                <section>
+                    <p>An <strong><u>object</u></strong> is an instance of a class</p>
+                    <img src="images/cow-instance.jpg">
+                </section>
+                <section>
+                    <p>A <strong><u>method</u></strong> specifies a behaviour of an object</p>
+                    <img src="images/cow-method.jpg">
+                </section>
+                <section>
+                    <p>An <strong><u>attribute</u></strong> defines the quality of an object</p>
+                    <img src="images/cow-attribute.jpg">
+                </section>
+                <section>
+                    <h2>Crib sheet</h2>
+                    <ul>
+                        <li class="fragment">Class = Noun</li>
+                        <li class="fragment">Object = Proper noun</li>
+                        <li class="fragment">Method = Verb</li>
+                        <li class="fragment">Attribute = Adjective</li>
+                    </ul>
+                    <p class="fragment">(This is not entirely
+                    accurate but is close enough for today)</p>
+                </section>
+                <section>
+                    <h1>What about Python?</h2>
+                </section>
+		        <section>
                     <h2>Python Classes</h2>
                     <pre><code contenteditable class="python">
     class Cow:
@@ -198,7 +198,7 @@
 
         def moo(self, message='MOO!'):
             """
-            A bovine greeting function (see previous slide).
+            A bovine greeting method (see earlier slide).
             """
             return '{} says, {}'.format(self.name, message)
                     </pre></code>
@@ -229,6 +229,7 @@
                     <img src="images/and_now_its_time_for_something_completely_different.jpg"/>
                 </section>
                 <section>
+                    <h2>Parrots!</h2>
                     <img src="images/dead-parrot.png"/>
                 </section>
                 <section>
@@ -242,18 +243,35 @@
                     </ul>
                 </section>
                 <section>
-                    <h2>Show and Tell</h2>
+                    <p>Crib sheet...</p>
+                    <pre><code contenteditable class="python">
+    class Cow:
+        """
+        A pythonic cow. :-)
+        """
+
+        def __init__(self, name='Cow', breed=None):
+            """
+            Called when the class is instantiated.
+            """
+            self.name = name
+            self.breed = breed
+
+        def moo(self, message='MOO!'):
+            """
+            A bovine greeting method (see earlier slide).
+            """
+            return '{} says, {}'.format(self.name, message)
+
+    my_cow = Cow('Buttercup', 'Galloway')
+    print(my_cow.moo())
+                    </pre></code>
+                    <p>Saved in the file <code>cow.py</code> and run with the
+                    command: <code>python cow.py</code></p>
                 </section>
                 <section>
-                    <h2>Image Credits</h2>
-                    <ul>
-                        <li>
-                            <a href="http://thestreetwhereyoulive.files.wordpress.com/2011/09/talk.jpg">Talk</a>
-                        </li>
-                        <li>
-                            <a href="http://i.huffpost.com/gen/1587802/thumbs/o-COW-facebook.jpg">Cow</a>
-                        </li>
-                    </ul>
+                    <h2>Show and Tell</h2>
+                    <img src="images/monty-python-flying-cow.jpg"/>
                 </section>
 			</div>
 
