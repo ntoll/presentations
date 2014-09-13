@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>A Quick Pythonic Introduction to Nao</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+                <section>
+                    <h2>The Great British Robot Code Dojo</h2>
+                    <img src="images/nao_blueprint.jpg"/>
+                    <h4>Programming Nao Using Python</h4>
+                    <p>
+                        <small>
+                            <a href="http://ntoll.org">Nicholas H.Tollervey</a>
+                            / <a href="http://twitter.com/ntoll">@ntoll</a>
+                        </small>
+                    </p>
+                    <aside class="notes">
+                        <ul>
+                            <li>These are where the speaker's notes go.</li>
+                        <ul>
+                    </aside>
+                </section>
+                <section>
+                    <img src="images/nao.jpg"/>
+                </section>
+                <section>
+                    <h2>3 Ways to Use Python:</h2>
+                    <ol>
+                        <li>Scripts in "boxes";</li>
+                        <li>Custom Python scripts in Choregraphe;</li>
+                        <li>Python Modules.</li>
+                    </ol>
+                    <p>We'll look at 1. We don't have time for 2 &amp; 3.</p>
+                    <p>(We do have the docs and manuals if you're interested.)</p>
+                </section>
+                <section>
+                    <h2>Boxes</h2>
+                    <img src="images/boxes.png"/>
+                    <p>Tree of boxes defines behaviour.</p>
+                </section>
+                <section>
+                    <h2>Anatomy of a Box</h2>
+                    <ul>
+                        <li class="fragment">Each box represents a dynamically
+                        created Python class.</li>
+                        <li class="fragment">The class has five default
+                        methods: <code>__init__, onLoad, onUnload,
+                        onInput_onStart &amp; onInput_onStop</code>.
+                        <li class="fragment">The class <strong>MUST</strong>
+                        inherit from <code>GeneratedClass</code> whose
+                        <code>__init__</code> must be the first thing called
+                        in the child class's own <code>__init__</code>
+                        method.</li>
+                    </ul>
+                </section>
+                <section>
+                    <p>Right-click to create a new box.</p>
+                    <img src="images/new_box.png"/>
+                </section>
+                <section>
+                    <img src="images/new_box_dialog.png"/>
+                </section>
+                <section>
+                    <img src="images/new_box_icon.png"/>
+                    <p>(Double click the box to see the generated code.)</p>
+                </section>
+                <section>
+                    <img src="images/new_box_script.png"/>
+                    <p>(Edit code in here. No need to "save".)</p>
+                </section>
+                <section>
+                    <img src="images/new_box_play.png"/>
+                    <p>(Press the green "Play" button to run.)</p>
+                </section>
+                <section>
+                    <img src="images/new_box_log.png"/>
+                    <p>(Yay! It works!)</p>
+                </section>
+                <section>
+                    <h2>What just happened?</h2>
+                    <p>At behaviour start:</p>
+                    <ul>
+                        <li>The <code>__init__</code> method for
+                        <strong>ALL</strong> boxes is run.</li>
+                        <li>The boxes at <strong>root level</strong> have
+                        their <code>onLoad</code> method called.</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Demo: Turn Nao into an adding machine</h2>
+                </section>
+                <section>
+                    <img src="images/adder_new_input.png"/>
+                    <p>(Right click on an input and select <code>Add
+                    Input</code>.)</p>
+                </section>
+                <section>
+                    <img src="images/adder_new_input_dialog.png"/>
+                </section>
+                <section>
+                    <img src="images/adder_new_output_dialog.png"/>
+                    <p>(Same again, but right click on an existing output.)</p>
+                </section>
+                <section>
+                    <img src="images/adder_code_behind.png"/>
+                    <p>(Double click on the box to edit the code for the
+                    <code>onInput_sum</code> method.)</p>
+                </section>
+                <section>
+                    <pre><code contenteditable class="python">
+    def onInput_sum(self, p):
+        """
+        The input p should be the name of a number between 0-9 (defined
+        in self.numbers defined in __init__) or the word "equals".
+
+        Numbers get added to the self.operands list. When the word
+        "equals" in encountered the operands are summed then cleared
+        and the result is output.
+
+        Anything else is handled by very basic error handling.
+        """
+        self.logger.info(p)
+        try:
+            if p.strip() in self.numbers:
+                self.operands.append(int(p))
+            elif p == 'equals':
+                self.logger.info(self.operands)
+                result = sum(self.operands)
+                self.operands = []
+                self.outputResult('The answer is {}'.format(result))
+        except Exception as ex:
+            # Yeah, I know... :-(
+            error = ex.__class__.__name__
+            msg = 'Cannot compute. I encountered a {}'.format(error)
+            self.outputResult(msg)
+                </code></pre>
+                </section>
+                <section>
+                    <p>Define a behaviour tree:</p>
+                    <img src="images/adder_behaviour_tree.png"/>
+                    <p>(Click on the spanner in the bottom rhs of the Speech
+                    Recognition box.)</p>
+                </section>
+                <section>
+                    <img src="images/adder_speech_params.png"/>
+                    <p>Add the word "equals" and the digits 0-9 as a
+                    delineated semi-colon list. Set the threshold to just
+                    over 51% (but don't expect great results -
+                    experiment!).</p>
+                </section>
+                <section>
+                    <img src="images/demo.jpg"/>
+                    <p>(Live demo)</p>
+                </section>
+                <section>
+                    <h1>Questions..?</h1>
+                </section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: 'sky', // available themes are in /css/theme
+				transition: 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
